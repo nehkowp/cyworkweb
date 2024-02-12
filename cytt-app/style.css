@@ -1,0 +1,48 @@
+*{
+    background-color:  rgb(39, 39, 39);
+    box-sizing: border-box;
+
+}
+html body{
+    height: 100%;
+    width: 100%;
+}
+
+.menu{
+    font-weight: 200;
+    color: white;
+
+}
+
+#wrapper{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.timetable{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#td {
+    padding: auto;
+    margin: 10px;
+    width: 300px;
+    height: 150px;
+    background: rgb(0, 106, 255);
+    border-radius: 10%;
+}
+
+#cm {
+    padding: auto;
+    margin: 10px;
+    width: 300px;
+    height: 150px;
+    background: rgb(52, 250, 45);
+    border-radius: 10%;
+}

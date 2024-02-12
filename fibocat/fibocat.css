@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+* {
+    background-color: rgb(45, 44, 44);
+    position: relative;
+    font-family: 'Poppins';
+}
+
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content:  center;
+}
+
+div{
+    margin: auto;
+    padding: 1%;
+    border: 10%;
+    border-radius: 25px;
+    border-color: rgb(95, 156, 3);
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
