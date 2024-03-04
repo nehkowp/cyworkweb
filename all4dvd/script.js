@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }  
         cardsButton = document.querySelectorAll(".profile-image");
-        return;
+        return; 
       }
 
       if (!target) return;
@@ -205,4 +205,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
 });
+
+// Sélectionnez votre formulaire (veuillez remplacer 'myForm' par l'ID de votre formulaire)
+const myForm = document.getElementById('myForm');
+
+// Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
+myForm.addEventListener('submit', function(event) {
+    // Empêcher le comportement par défaut de soumission du formulaire
+    event.preventDefault();
+
+    // Récupérez tous les noms des artistes (veuillez remplacer 'artistName' par la classe ou l'ID approprié)
+    const artistNames = document.querySelectorAll('.container-shop .title');
+
+    // Créez un tableau pour stocker les noms des artistes
+    const artistNamesArray = [];
+
+    // Parcourez chaque élément contenant le nom de l'artiste et ajoutez-le au tableau
+    artistNames.forEach(function(artist) {
+        artistNamesArray.push(artist.textContent);
+    });
+    console.log(artistNamesArray);
+
+    // Construisez l'URL de la requête GET en utilisant les noms des artistes
+    const url = './validation.html' + artistNamesArray.join('&');
+    alert(artistNamesArray);
+
+    // Envoyez la requête GET au serveur
+    fetch(url, {
+        method: 'GET',
+        // Ajoutez d'autres options de requête si nécessaire (par exemple, headers)
+    })
+    .then(response => {
+        // Gérez la réponse du serveur
+        console.log('Requête GET envoyée avec succès !');
+    })
+
+    .catch(error => {
+        // Gérez les erreurs de requête
+        console.error('Erreur lors de l\'envoi de la requête GET :', error);
+    });
+});
+
+
+
+
 })

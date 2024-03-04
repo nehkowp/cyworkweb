@@ -54,11 +54,13 @@ body::before{
 
 
 .card{
+    cursor: pointer;
     background-color: rgb(31, 29, 29);
     margin: 5px;
     height: 100px;
     width: 100px;
     border-radius: 5%;
+    
 }
 
 .card_row{
