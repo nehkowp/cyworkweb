@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultat</title>
+</head>
+<body>
+	<h1>Équation du second degré</h1>
+	<!-- attention il ne faut pas rajouter les balises <form> -->
+	<!-- car la fonction javascript ne sera jamais appelée -->
+	<p>a <input type="text" id="a">	</p>
+	<p>b <input type="text" id="b">	</p>
+	<p>c <input type="text" id="c">	</p>
+	<p><input type="button" onclick="resolved()" value="résoudre"></p>
+
+	<h1>Résultat</h1>
+	<div id="resultat"></div>
+	
+	<!-- JAVASCRIPT -->
+	<script>
+		function resolved(){
+			<!-- Récuperer la valeur des ids a, b et c -->
+			a= document.getElementById("a").value;
+			b= document.getElementById("b").value;
+			c= document.getElementById("c").value;
+			
+			<!-- Initialiser un Objet de type XMLHttpRequest -->
+			xhttp = new XMLHttpRequest();
+			
+			<!-- Écouter à travers l’objet tout traitement côté serveur -->
+			xhttp.onreadystatechange = function() {
+				<!--  Appliquer une action en cas de traitement côté serveur -->
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("resultat").innerHTML = this.responseText;
+				}
+			};
+			<!-- Envoyer des informations au serveur pour un traitement -->
+			xhttp.open("POST", "Calcul.php?", true);
+			<!-- Ne pas oublier l'encodage des caractères -->
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			<!-- Format de la donnée lorsque l'on envoi avec la méthode post -->
+			xhttp.send("a="+a+"&b="+b+"&c="+c);
+		}
+	</script>
+</body>
+</html>
