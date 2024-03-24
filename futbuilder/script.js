@@ -65,6 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   placementPlayer();
 
+  function resetShop(){
+    const children = cardsPlayerShop.children;
+              for (let i = 0; i < children.length; i++) {
+                const child = children[i];
+                if (!child.classList.contains("none")) {
+                  child.childNodes.forEach(child => {
+                    if (child.firstChild && child.firstChild.classList.contains("card-player")) {
+                          child.firstChild.classList.remove("choosed");
+                    }
+                });
+                break;
+                }
+              }
+  }
+
   function createCard(parentElement, cardId) {
       
     // Création de la nouvelle div avec la classe "card" et l'ID spécifié
@@ -125,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     createCard(goalkeeper,11);
     addPlayerField();
 
+
   var compo1 = document.getElementById("compo-1");
   compo1.addEventListener("change", () => {
       if (compo1.checked) {
@@ -141,6 +157,9 @@ document.addEventListener('DOMContentLoaded', function() {
         createCard(defenders,10);
         createCard(goalkeeper,11);
         addPlayerField();
+        resetShop();
+        showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
+
       }
   });  
 
@@ -160,6 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
           createCard(defenders,10);
           createCard(goalkeeper,11);
           addPlayerField();
+          resetShop();
+          showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
+
         }
     });
     var compo3 = document.getElementById("compo-3");
@@ -178,7 +200,9 @@ document.addEventListener('DOMContentLoaded', function() {
           createCard(defenders,10);
           createCard(goalkeeper,11);
           addPlayerField();
-        
+          resetShop();
+          showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
+
         }
     });
 
@@ -198,7 +222,8 @@ document.addEventListener('DOMContentLoaded', function() {
           createCard(defenders,10);
           createCard(goalkeeper,11);
           addPlayerField();
-        
+          resetShop();
+          showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
         }
     });
   }
@@ -465,7 +490,9 @@ leagueButtons.forEach(button => {
         showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
         selectClub = document.querySelector('.select-club');
         radioButtons = selectClub.querySelectorAll('input[type="radio"]');
-        updateRadiosB()
+        updateRadiosB();
+        removePlayer();
+        placementPlayer();
     });
 });
 
@@ -473,9 +500,11 @@ function updateRadiosB(){
   radioButtons.forEach(radioButton => {
       radioButton.addEventListener('change', () => {
           
-        // Code à exécuter lorsque le bouton radio est sélectionné/désélectionné
           showBudget(document.querySelector('.select-club input[name="club-name"]:checked').dataset.club);
           updateRadiosB();
+          removePlayer();
+          placementPlayer();
+
         });
   });
 }
