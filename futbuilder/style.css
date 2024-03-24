@@ -70,18 +70,20 @@ body {
 
 
 .field {
-    height: 725px;
-    width: 892px;
+    height: 95vh;
+    width: 55%;
+    /* height: 725px;
+    width: 892px; */
+    
     background-image: url("./assets/grass.png");
     border-radius: 20px;
     justify-content: center;
     display: flex;
     gap :1px;
     margin-top: 2%;
-    margin-bottom: 2%;
     margin-left: 1.5%;
     margin-right: 3%;
-
+    background-size: cover;
     flex-direction: column;
     background-repeat: no-repeat;
 }
@@ -149,7 +151,7 @@ body {
     border: 0;
     border-bottom: 0;
     margin: 10px;
-    width: 70%;
+    width: 85%;
     border-radius: 6px ;
 }
 
@@ -164,7 +166,7 @@ body {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: stretch;
+    justify-content: center;
     align-items: center;
 }
 .players-container-women{
@@ -174,17 +176,7 @@ body {
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: stretch;
-    align-items: center;
-}
-.players-container-all{
-    margin-top: 10px;
-    margin-left: 1%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: stretch;
+    justify-content: center;
     align-items: center;
 }
 
@@ -194,9 +186,7 @@ body {
 .players-container-women.none{
     display: none;
 }
-.players-container-all.none{
-    display: none;
-}
+
 
 
 
@@ -236,7 +226,8 @@ body {
 
 .card-box.shop {
     margin: 1%;
-    height: 40%; /* Définir la largeur de la div */
+    width: 14%;
+    height: 35%; /* Définir la largeur de la div */
 }
 
 
@@ -255,7 +246,8 @@ body {
     font-family: 'EA Font v1.5 by Ghettoshark', sans-serif;
     background-color: #161616;
     border-radius: 5%;
-    height: 90vh;
+    height: 80vh;
+    margin-top: 2%;
     margin-right: 1.5%;
     margin-left: 3%;
     width: 25%;
